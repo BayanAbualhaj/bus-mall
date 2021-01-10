@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color:#dcf4f5;
+  
+  }
+  
+  header {
+    background: #18ad3155;
+    width: 100%;
+  }
+  
+  nav {
+    max-width:  900px;
+  }
+  
+  nav ul {
+    margin: auto;
+    display: block;
+    max-width: 660px;
+  }
+  
+  
+  img {
+    max-height: 300px;
+    max-width: 100%;
+    display: inline;
+    margin: 20px;
+  }
+  
+  li {
+    display: inline-block;
+    list-style: none;
+    margin: 20px 40px 20px 0px;
+    font-size: 1.2em;
+    
+  }
+  
+  h2,h1 {
+      color: blue;
+      font-family: 'Times New Roman', Times, serif;
+  }
+  
+  section div {
+    padding: 7px;
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+  }
