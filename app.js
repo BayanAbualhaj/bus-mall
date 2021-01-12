@@ -33,11 +33,7 @@ var arrayOfcolors= ["#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8", "#648
 "#f205e6" ,"#1c0365" ,"#14a9ad" ,"#4ca2f9" ,"#a4e43f" ,"#d298e2" ,"#6119d0",
 "#d2737d" ,"#c0a43c" ,"#f2510e" ,"#651be6" ,"#79806e" ,"#61da5e"]
 
-for (var index = 0; index < arrayOfpics.length; index++) {
-   
-  new Order (arrayOfnames[index],arrayOfpics[index]);
-  
-}  
+
 
 function Order(name,image){
     this.name=name;
@@ -49,6 +45,12 @@ function Order(name,image){
     arrayOforders.push(this);
 
 }
+
+for (var index = 0; index < arrayOfpics.length; index++) {
+   
+  new Order (arrayOfnames[index],arrayOfpics[index]);
+  
+}  
 
 
 function renderOrder(leftImg,middleImg,rightImg){
@@ -69,7 +71,7 @@ function renderOrder(leftImg,middleImg,rightImg){
 
 function checkAvailability (selectedImageName){
   for (var index = 0; index < shownImgAlready.length; index++) {
-    if (shownImgAlready[index].name===selectedImageName) {
+    if (shownImgAlready[index]===selectedImageName) {
       return true;
     }
     
@@ -79,21 +81,22 @@ function checkAvailability (selectedImageName){
 var shownImgAlready=[];
 
 function pickAnOrder(){
-    var leftImg = Math.round(Math.random()*(arrayOforders.length-1));
-    var leftImgName= arrayOforders[leftImg].name;
-    checkAvailability(leftImgName);
     
-    do{
+    
+    
+    do{ 
+        var leftImg = Math.round(Math.random()*(arrayOforders.length-1));
         var middleImg =  Math.round(Math.random()*(arrayOforders.length-1));
         var rightImg= Math.round(Math.random()*(arrayOforders.length-1));
-    }while(leftImg===rightImg || middleImg===rightImg||leftImg===middleImg|| checkAvailability(arrayOforders[rightImg].name)||checkAvailability(arrayOforders[middleImg].name));
+    }while(leftImg===rightImg || middleImg===rightImg||leftImg===middleImg|| checkAvailability(rightImg)||checkAvailability(middleImg)||checkAvailability(leftImg));
 
 
     shownImgAlready=[];
 
     shownImgAlready.push(
-      arrayOforders[leftImg],arrayOforders[middleImg],arrayOforders[rightImg]
+      leftImg,middleImg,rightImg
     )
+    console.log(shownImgAlready);
     renderOrder(leftImg,middleImg,rightImg);
   
 }
