@@ -48,12 +48,15 @@ function Order(name, image) {
 
 }
 
+// this loop to creat the objects 
+
 for (var index = 0; index < arrayOfpics.length; index++) {
 
     new Order(arrayOfnames[index], arrayOfpics[index]);
 
 }
 
+// this function to set the selected images and tags in the screen of the web page 
 
 function renderOrder(leftImg, middleImg, rightImg) {
     leftOrderImg.setAttribute('src', arrayOforders[leftImg].url);
@@ -70,6 +73,9 @@ function renderOrder(leftImg, middleImg, rightImg) {
     rightOrderText.textContent = arrayOforders[rightImg].name;
 }
 
+
+//the function is to check the availability of the picture to not have the same images twice in a row 
+
 function checkAvailability(selectedImageName) {
     for (var index = 0; index < shownImgAlready.length; index++) {
         if (shownImgAlready[index] === selectedImageName) {
@@ -79,11 +85,13 @@ function checkAvailability(selectedImageName) {
     }
     return false;
 }
+
+
 var shownImgAlready = [];
 
+// here we select the images randomly and making sure it's not repeated in the same round 
+
 function pickAnOrder() {
-
-
 
     do {
         var leftImg = Math.round(Math.random() * (arrayOforders.length - 1));
@@ -102,6 +110,7 @@ function pickAnOrder() {
 
 }
 
+// here I track the number of clicks for the images and re-renderhtem for the local srorge 
 
 function checkOrders(objectIndicator) {
     for (let index = 0; index < arrayOforders.length; index++) {
@@ -119,7 +128,8 @@ function checkOrders(objectIndicator) {
 
 
 
-
+// here is the main function that make the web page work and it depends on the number of trailes 
+// and caling the pther function to work and rendering the local storge after the trials ends
 
 function countOrders(event) {
     var targetId = event.target.id;
@@ -147,6 +157,7 @@ function countOrders(event) {
     }
 }
 
+// here is a global condition to keep trak of the shone and clicked image to use them in chart data 
 
 if (localStorage.getItem('clicks')) {
     var localStorgeData = JSON.parse(localStorage.getItem('clicks'));
@@ -167,6 +178,7 @@ pickAnOrder();
 orderSection.addEventListener('click', countOrders);
 listitem.addEventListener('click', fillList);
 
+// here crating the list that include the results for all the products shown 
 
 function fillList() {
 
@@ -181,7 +193,7 @@ function fillList() {
 
 
 
-
+// this function is to render the chart of traking numer of clicks and number of shown images
 
 function chartForOrders() {
 

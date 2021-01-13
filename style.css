@@ -28,6 +28,12 @@
     width: 200px;
     display: inline-block;
     margin-left: 100px;
+    padding: 2px;
+    background-color: blue;
+  }
+
+  img:hover{
+    background-color: chartreuse;
   }
   
   li {
@@ -48,4 +54,11 @@
   nav ul li{
     display:inline-block;
     list-style: none;
+  }
+
+  h1{
+    background-color: cornsilk;
+    border-style: solid;
+    margin-right: 90px;
+    text-align: center;
   }
